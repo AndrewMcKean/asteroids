@@ -51,6 +51,11 @@ def main():
                 pygame.quit()
                 return
 
+            for shot in shots:
+                if asteroid.get_is_colliding(shot) == True:
+                    shot.kill()
+                    asteroid.kill()
+
         screen.fill("black")
 
         for drawable in drawables:
