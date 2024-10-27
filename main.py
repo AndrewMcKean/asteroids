@@ -41,8 +41,13 @@ def main():
         for updatable in updatables:
             updatable.update(dt)
 
-        screen.fill("black")
+        for asteroid in asteroids:
+            if asteroid.get_is_colliding(player) == True:
+                print("Game Over!")
+                pygame.quit()
+                return
 
+        screen.fill("black")
 
         for drawable in drawables:
             drawable.draw(screen)
